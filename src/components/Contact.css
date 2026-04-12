@@ -102,6 +102,13 @@
 .email-method:hover { border-color: rgba(236, 201, 75, 0.5); }
 .email-method .icon-wrapper { background: rgba(236, 201, 75, 0.1); color: var(--accent-secondary); }
 
+.youtube-method:hover { border-color: rgba(255, 0, 0, 0.5); }
+.youtube-method .icon-wrapper { background: rgba(255, 0, 0, 0.1); color: #FF0000; }
+
+.contact-method:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .method-text {
   display: flex;
   flex-direction: column;

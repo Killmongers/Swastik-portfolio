@@ -7,7 +7,7 @@ const Projects = () => {
       title: 'tripeasy.in Backend',
       description: 'Built scalable REST APIs and managed the live full-stack application deployment on AWS Lightsail using Nginx and PM2.',
       tags: ['Python', 'AWS', 'Nginx', 'Node.js'],
-      link: '#'
+      link: 'https://www.tripeasy.in/'
     },
     {
       title: 'AI Hospitality Chatbot',
@@ -23,8 +23,8 @@ const Projects = () => {
     },
     {
       title: 'Prompt-to-PDF Engine',
-      description: 'Engineered a backend service that seamlessly converts structured AI responses and inputs into formatted PDF documents.',
-      tags: ['Python', 'Data Processing', 'API Design'],
+      description: 'Developed a Node.js-based backend service that transforms structured AI inputs into well-formatted PDF documents. Implemented custom layout rendering using drawing tools to enhance visual presentation and readability.',
+      tags: ['Node.js', 'JavaScript', 'PDF Generation', 'API Design'],
       link: '#'
     }
   ];
@@ -32,7 +32,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section-container projects-section">
       <h2 className="section-title">Featured Projects</h2>
-      
+
       <div className="projects-grid">
         {projects.map((project, index) => (
           <div key={index} className="project-card glass-effect animate-on-scroll" style={{ animationDelay: `${index * 0.15}s` }}>
