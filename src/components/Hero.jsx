@@ -74,7 +74,7 @@ const Hero = () => {
             <a href="#projects" className="btn btn-primary glow-btn">
               Explore Projects
             </a>
-            <a href="https://www.linkedin.com/in/swastik-software-developer//in/swastik-python-dev/" target="_blank" rel="noopener noreferrer" className="btn btn-outline hover-glow">
+            <a href="https://www.linkedin.com/in/swastik-software-developer/" target="_blank" rel="noopener noreferrer" className="btn btn-outline hover-glow">
               Connect on LinkedIn
             </a>
           </div>
