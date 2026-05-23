@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import swastikImg from '../assets/swastik.jpg';
 
 const About = () => {
   return (
@@ -7,52 +8,78 @@ const About = () => {
       <h2 className="section-title">About Me</h2>
       
       <div className="about-content">
-        <div className="about-text glass-effect animate-on-scroll">
-          <p>
-            I am a Software Engineer based in Ahmedabad, Gujarat, passionate about building robust backend systems, 
-            intelligent AI integrations, and cloud-native applications. With a strong foundation in Database Management 
-            and server hardening, I enjoy tackling complex deployment and integration challenges.
-          </p>
-          <p>
-            My recent wok involves architecting scalable AI chatbot solutions using the Google Gemini API, 
-            optimizing RESTful APIs in Node.js and Python, and streamlining full-stack AWS Lightsail deployments 
-            for live applications.
-          </p>
-          <div className="about-stats">
-            <div className="stat-item">
-              <span className="stat-number">2+</span>
-              <span className="stat-text">Years Dev Experience</span>
+        {/* Left Column: Visual Profile Display */}
+        <div className="profile-container animate-on-scroll">
+          <div className="profile-card glass-effect hover-float">
+            <div className="avatar-wrapper">
+              <div className="rotating-glow-ring"></div>
+              <img src={swastikImg} alt="Swastik Moolya" className="avatar-img" />
             </div>
-            <div className="stat-item">
-              <span className="stat-number">5+</span>
-              <span className="stat-text">Cloud Deployments</span>
+            
+            <div className="profile-badge">
+              <span className="badge-dot"></span>
+              <span className="badge-label">Shipping Production AI Systems</span>
             </div>
-            <div className="stat-item">
-              <span className="stat-number">10+</span>
-              <span className="stat-text">APIs Integrated</span>
+
+            <div className="profile-meta">
+              <h3>Swastik Moolya</h3>
+              <p>Full-Stack & AI Engineer</p>
+              <div className="meta-info">
+                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg> Ahmedabad, Gujarat</span>
+                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Asambhav Solutions</span>
+              </div>
             </div>
           </div>
         </div>
-        
-        <div className="about-education glass-effect animate-on-scroll" style={{ animationDelay: '0.2s' }}>
-          <h3>Education & Certifications</h3>
-          <ul className="edu-list">
-            <li>
-              <strong>B.Tech in Computer Science & Engineering</strong>
-              <span>Parul Institute of Engineering & Technology, Vadodara (2022 – 2025)</span>
-            </li>
-            <li>
-              <strong>Diploma in Computer Engineering</strong>
-              <span>LJ University, Ahmedabad (2019 – 2022)</span>
-            </li>
-          </ul>
+
+        {/* Right Column: Bio Details, Stats, and Education */}
+        <div className="about-details">
+          {/* Card 1: Bio Summary & Stats */}
+          <div className="about-text glass-effect animate-on-scroll" style={{ transitionDelay: '0.1s' }}>
+            <h3>Professional Profile</h3>
+            <p>
+              Full-Stack & AI Engineer with 1.5+ years building production-grade systems—from LangChain-powered WhatsApp bots and RAG pipelines to full-stack medical platforms with Google Vertex AI. 
+            </p>
+            <p>
+              Hands-on across the entire lifecycle: architecting REST APIs, developing dynamic React & Next.js frontends, designing secure PostgreSQL schemas, and configuring automated AWS/GCP deployments.
+            </p>
+            <div className="about-stats">
+              <div className="stat-item">
+                <span className="stat-number">1.5+</span>
+                <span className="stat-text">Years Experience</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">10+</span>
+                <span className="stat-text">Cloud Deploys</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">25+</span>
+                <span className="stat-text">APIs Integrated</span>
+              </div>
+            </div>
+          </div>
           
-          <h4 className="cert-heading">Certifications</h4>
-          <div className="cert-tags">
-            <span className="cert-tag">AWS Cloud Quest: Cloud Practitioner</span>
-            <span className="cert-tag">Azure DevOps (Infosys)</span>
-            <span className="cert-tag">Cisco Data Analytics</span>
-            <span className="cert-tag">Python & Flask Complete Course</span>
+          {/* Card 2: Education & Credentials */}
+          <div className="about-education glass-effect animate-on-scroll" style={{ transitionDelay: '0.2s' }}>
+            <h3>Education & Credentials</h3>
+            <ul className="edu-list">
+              <li>
+                <strong>Bachelor of Technology in Computer Science & Engineering</strong>
+                <span className="edu-meta">Parul Institute of Engineering & Technology, Vadodara (2022 – 2025)</span>
+              </li>
+              <li>
+                <strong>Diploma in Computer Engineering</strong>
+                <span className="edu-meta">LJ University, Ahmedabad (2019 – 2022)</span>
+              </li>
+            </ul>
+            
+            <h4 className="cert-heading">Professional Certifications</h4>
+            <div className="cert-tags">
+              <span className="cert-tag">AWS Cloud Quest: Cloud Practitioner</span>
+              <span className="cert-tag">Azure DevOps (Microsoft)</span>
+              <span className="cert-tag">Python & Flask Complete Course</span>
+              <span className="cert-tag">Cisco Cybersecurity</span>
+            </div>
           </div>
         </div>
       </div>

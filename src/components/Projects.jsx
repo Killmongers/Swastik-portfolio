@@ -4,28 +4,24 @@ import './Projects.css';
 const Projects = () => {
   const projects = [
     {
-      title: 'tripeasy.in Backend',
-      description: 'Built scalable REST APIs and managed the live full-stack application deployment on AWS Lightsail using Nginx and PM2.',
-      tags: ['Python', 'AWS', 'Nginx', 'Node.js'],
-      link: 'https://www.tripeasy.in/'
+      title: 'AutoLead WhatsApp Chatbot',
+      description: 'Automated lead capture system utilizing WhatsApp API and LangChain JS agents. Operates via RAG similarity search over business documentation to deliver context-aware, secure replies. Implemented strict safety guardrails and idle session lifecycle enforcers, persisting structured leads directly to a PostgreSQL database.',
+      tags: ['LangChain JS', 'Node.js', 'PostgreSQL', 'RAG', 'WhatsApp API']
     },
     {
-      title: 'AI Hospitality Chatbot',
-      description: 'Integrated Google Gemini API and OHIP REST APIs to build an enterprise-scale hotel booking and check-in/out WhatsApp chatbot.',
-      tags: ['Node.js', 'Google Gemini API', 'WhatsApp API'],
-      link: '#'
+      title: 'IVF Clinic Management Platform',
+      description: 'A full-stack medical platform featuring secure JWT role authorization and SendGrid notifications. Integrates AI-assisted IVF image analysis powered by Google Vertex AI. Employs Prisma and GCS bucket structures for secure file hosting, generating time-limited signed URLs to protect sensitive patient documents.',
+      tags: ['React.js', 'Node.js', 'Prisma', 'Google Vertex AI', 'GCS', 'PostgreSQL']
     },
     {
-      title: 'Real-time Train Tracker Bot',
-      description: 'Developed backend services and WhatsApp bots for real-time live train tracking and PNR status checking using railway APIs.',
-      tags: ['Python', 'REST APIs', 'Automation'],
-      link: '#'
+      title: 'AI Bank Document Analyzer',
+      description: 'KYC automation backend designed to extract and parse high-fidelity structured datasets from bank statements, Aadhaar cards, and PAN cards. Utilizes advanced OCR utilities and customized LLM prompts to analyze document authentications efficiently.',
+      tags: ['Python', 'FastAPI', 'LLM Prompt Engineering', 'OCR', 'KYC Automation']
     },
     {
-      title: 'Prompt-to-PDF Engine',
-      description: 'Developed a Node.js-based backend service that transforms structured AI inputs into well-formatted PDF documents. Implemented custom layout rendering using drawing tools to enhance visual presentation and readability.',
-      tags: ['Node.js', 'JavaScript', 'PDF Generation', 'API Design'],
-      link: '#'
+      title: 'Hotel Booking WhatsApp Bot',
+      description: 'Conversational booking assistant integrated directly with Oracle Hospitality (OHIP) REST APIs. Retrieves live train/hotel listings, tracks real-time inventory management, and handles complete end-to-end reservation processing within active WhatsApp threads.',
+      tags: ['LangChain JS', 'Node.js', 'Oracle OHIP API', 'Conversational AI']
     }
   ];
 
@@ -35,7 +31,7 @@ const Projects = () => {
 
       <div className="projects-grid">
         {projects.map((project, index) => (
-          <div key={index} className="project-card glass-effect animate-on-scroll" style={{ animationDelay: `${index * 0.15}s` }}>
+          <div key={index} className="project-card glass-effect animate-on-scroll" style={{ transitionDelay: `${index * 0.1}s` }}>
             <div className="project-content">
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
@@ -44,11 +40,6 @@ const Projects = () => {
                   <span key={idx} className="project-tag">{tag}</span>
                 ))}
               </div>
-            </div>
-            <div className="project-links">
-              <a href={project.link} className="project-link" aria-label={`View ${project.title}`}>
-                View Details →
-              </a>
             </div>
           </div>
         ))}

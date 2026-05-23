@@ -1,32 +1,33 @@
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
 }
 
 .project-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: 12px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: all var(--transition-normal);
+  transition: all var(--transition-slow);
   border: 1px solid var(--card-border);
   height: 100%;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 10px 30px -15px rgba(49, 130, 206, 0.4);
-  border-color: rgba(49, 130, 206, 0.3);
+  box-shadow: 0 15px 35px -10px rgba(0, 242, 254, 0.2);
+  border-color: rgba(0, 242, 254, 0.25);
 }
 
 .project-content {
-  padding: 2rem;
+  padding: 2.25rem 2rem;
 }
 
 .project-title {
-  font-size: 1.3rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1rem;
 }
@@ -34,7 +35,7 @@
 .project-description {
   color: var(--text-secondary);
   font-size: 0.95rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
   line-height: 1.6;
 }
 
@@ -45,18 +46,20 @@
 }
 
 .project-tag {
-  font-size: 0.8rem;
-  font-family: 'Fira Code', monospace;
-  color: var(--accent-secondary);
-  background: rgba(236, 201, 75, 0.1);
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: var(--font-code);
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: rgba(0, 242, 254, 0.06);
+  border: 1px solid rgba(0, 242, 254, 0.12);
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
 }
 
 .project-links {
   padding: 1.5rem 2rem;
   border-top: 1px solid var(--card-border);
-  background: rgba(11, 15, 25, 0.3);
+  background: rgba(14, 19, 38, 0.35);
 }
 
 .project-link {
@@ -71,10 +74,18 @@
   color: var(--accent-primary);
 }
 
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
+
 @media (max-width: 480px) {
   .project-content {
     padding: 1.5rem;
   }
+
   .project-links {
     padding: 1.25rem 1.5rem;
   }

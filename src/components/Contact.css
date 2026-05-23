@@ -37,9 +37,10 @@
 }
 
 .contact-methods {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
   margin-top: 2rem;
 }
 
@@ -47,7 +48,7 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
-  padding: 1.5rem;
+  padding: 1.5rem 1.75rem;
   background: rgba(11, 15, 25, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
@@ -56,6 +57,8 @@
   position: relative;
   overflow: hidden;
   text-align: left;
+  flex: 1 1 280px;
+  max-width: 340px;
 }
 
 .contact-method::before {
@@ -105,9 +108,7 @@
 .youtube-method:hover { border-color: rgba(255, 0, 0, 0.5); }
 .youtube-method .icon-wrapper { background: rgba(255, 0, 0, 0.1); color: #FF0000; }
 
-.contact-method:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-}
+/* odd item naturally centers in flex-wrap layout — no hack needed */
 
 .method-text {
   display: flex;
@@ -138,10 +139,50 @@
 
 @media (max-width: 768px) {
   .contact-card {
-    padding: 3rem 2rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .contact-method {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-card {
+    padding: 2rem 1.15rem;
   }
   
-  .contact-methods {
-    grid-template-columns: 1fr;
+  .contact-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .contact-header p {
+    font-size: 0.95rem;
+  }
+  
+  .contact-method {
+    padding: 1.15rem 1.25rem;
+    gap: 1rem;
+  }
+  
+  .icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+  }
+  
+  .icon-wrapper svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .method-value {
+    font-size: 0.95rem;
+  }
+  
+  .footer {
+    margin-top: 3.5rem;
+    font-size: 0.8rem;
   }
 }
