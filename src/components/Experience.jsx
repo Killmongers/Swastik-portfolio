@@ -1,45 +1,94 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Experience.css';
+
+const ExperienceCard = ({ exp, index }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const isCurrent = exp.duration.toLowerCase().includes('present');
+  const MAX_VISIBLE = 4;
+  const hasMore = exp.details.length > MAX_VISIBLE;
+  const visibleDetails = isExpanded ? exp.details : exp.details.slice(0, MAX_VISIBLE);
+
+  return (
+    <div 
+      className={`exp-card glass-effect animate-on-scroll ${isCurrent ? 'exp-current' : ''}`}
+      style={{ transitionDelay: `${index * 0.15}s` }}
+    >
+      {isCurrent && (
+        <div className="exp-live-badge">
+          <span className="live-dot"></span>
+          Live
+        </div>
+      )}
+      
+      <div className="exp-header">
+        <h3 className="exp-role">{exp.role}</h3>
+        <span className="exp-date">{exp.duration}</span>
+      </div>
+      
+      <div className="exp-company">{exp.company}</div>
+      <div className="exp-location">{exp.location}</div>
+      
+      <div className="exp-divider"></div>
+      
+      <div className={`exp-details-wrapper ${isExpanded ? 'expanded' : ''}`}>
+        <ul className="exp-details">
+          {visibleDetails.map((detail, idx) => (
+            <li key={idx}>{detail}</li>
+          ))}
+        </ul>
+      </div>
+
+      {hasMore && (
+        <button 
+          className="exp-toggle-btn" 
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          {isExpanded ? 'Show Less' : `+ Show ${exp.details.length - MAX_VISIBLE} More`}
+        </button>
+      )}
+    </div>
+  );
+};
 
 const Experience = () => {
   const experiences = [
     {
       id: 1,
       role: 'Software Engineer',
-      company: 'Asambhav Solutions',
+      company: 'Current Role',
       duration: 'Sep 2025 - Present',
       location: 'Ahmedabad, Gujarat',
       details: [
-        'Built AutoLead — a WhatsApp lead generation agent using LangChain JS with RAG-based similarity search over client documents; automatically extracts contact details and captures leads directly into PostgreSQL.',
-        'Developed a multi-turn hotel booking WhatsApp bot integrated with Oracle Hospitality (OHIP) API for live, real-time inventory management and secure reservation processing.',
-        'Built full-stack IVF clinic management platform (React + Node.js + Prisma + PostgreSQL) with Google Vertex AI-assisted medical image analysis, GCS bucket storage, and secure signed URL generation.',
-        'Integrated Google ADK with ChatGPT and Gemini wrappers; implemented core LLM guardrails to enforce secure, safe, on-topic responses, and added idle session conversation expiry.',
-        'Created an AI-powered bank document parser utilizing OCR and Gemini APIs to extract structured KYC datasets from bank statements, Aadhaar, and PAN cards.',
-        'Developed internal Discord productivity bot for automated standup reminders and missing update notification flags.',
-        'Designed prompt-to-PDF dynamic document layout engine using Next.js and Gemini API integrations.'
+        'Built LeadBot — a WhatsApp lead generation agent using LangChain JS with RAG-based similarity search over client documents; auto-persists structured leads to PostgreSQL with LLM guardrails and session lifecycle management.',
+        'Developed a multi-turn hotel booking WhatsApp bot integrated with Oracle Hospitality (OHIP) API for live inventory management and secure reservation processing.',
+        'Built a full-stack clinic management platform (React + Node.js + Prisma + PostgreSQL) with Google Vertex AI-assisted medical image analysis, GCS bucket storage, and time-limited signed URL access.',
+        'Integrated Google ADK with ChatGPT and Gemini across multiple client projects; implemented LLM guardrails for safe, on-topic responses and idle session expiry.',
+        'Created an AI-powered bank document parser using OCR and Gemini APIs to extract structured KYC datasets from bank statements, Aadhaar, and PAN cards.',
+        'Built internal Discord productivity bot for daily standup reminders and automated end-of-day update tracking.',
+        'Designed a prompt-to-PDF dynamic document layout engine using Next.js and Gemini API.'
       ]
     },
     {
       id: 2,
       role: 'Python Developer',
-      company: 'FlyAnyTrip.com',
+      company: 'Travel Tech Startup',
       duration: 'Dec 2024 - Aug 2025',
       location: 'Vadodara, Gujarat',
       details: [
-        'Developed a core travel booking platform in Core PHP integrated with third-party flight and train APIs; built a Calendar API for real-time pricing and dynamic date pickers.',
-        'Built conversational multi-turn WhatsApp chatbot using Flask and Python with in-memory session stores for context retention.',
-        'Managed production deployments of Node.js servers on AWS EC2 behind Nginx reverse proxies, managing CNAME records and Let\'s Encrypt SSL provisions.',
-        'Resolved critical cross-origin request handling (CORS) bugs across microservice environments.'
+        'Built a Core PHP travel booking platform with third-party flight and train API integrations; developed a Calendar API for real-time pricing and dynamic date pickers.',
+        'Developed a multi-turn WhatsApp chatbot using Flask and Python with in-memory session management for conversation context retention.',
+        'Deployed Node.js backend on AWS EC2 with Nginx reverse proxy; configured CNAME records and provisioned SSL certificates.',
+        'Resolved critical cross-origin request handling (CORS) issues across microservice environments.'
       ]
     },
     {
       id: 3,
       role: 'Summer Intern',
-      company: 'byteXL, Parul University',
-      duration: 'May 2024 - June 2024',
+      company: 'EdTech Platform',
+      duration: 'May 2024 - Jun 2024',
       location: 'Vadodara, Gujarat',
       details: [
-        'Created custom Python automation scripts, scrapers, and REST API endpoints connected with frontend client interfaces.'
+        'Completed structured training in Data Structures & Algorithms, core programming fundamentals, and database basics.'
       ]
     }
   ];
@@ -48,24 +97,14 @@ const Experience = () => {
     <section id="experience" className="section-container">
       <h2 className="section-title">Professional Journey</h2>
       
-      <div className="timeline">
+      <div className="exp-stack">
         {experiences.map((exp, index) => (
-          <div key={exp.id} className="timeline-item animate-on-scroll" style={{ transitionDelay: `${index * 0.15}s` }}>
-            <div className="timeline-dot"></div>
-            <div className="timeline-content glass-effect">
-              <div className="timeline-header">
-                <h3>{exp.role} <span>@ {exp.company}</span></h3>
-                <span className="timeline-date">{exp.duration}</span>
-              </div>
-              <span className="timeline-location">{exp.location}</span>
-              <ul className="timeline-details">
-                {exp.details.map((detail, idx) => (
-                  <li key={idx}>{detail}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <ExperienceCard key={exp.id} exp={exp} index={index} />
         ))}
+      </div>
+      
+      <div style={{ marginTop: '4rem', textAlign: 'center' }} className="animate-on-scroll">
+        <a href="#contact" className="btn btn-primary glow-btn">Let's Talk</a>
       </div>
     </section>
   );

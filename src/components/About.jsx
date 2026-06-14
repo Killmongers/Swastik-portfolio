@@ -26,7 +26,7 @@ const About = () => {
               <p>Full-Stack & AI Engineer</p>
               <div className="meta-info">
                 <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg> Ahmedabad, Gujarat</span>
-                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Asambhav Solutions</span>
+                <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg> Currently Employed · Open to Opportunities</span>
               </div>
             </div>
           </div>
@@ -38,10 +38,10 @@ const About = () => {
           <div className="about-text glass-effect animate-on-scroll" style={{ transitionDelay: '0.1s' }}>
             <h3>Professional Profile</h3>
             <p>
-              Full-Stack & AI Engineer with 1.5+ years building production-grade systems—from LangChain-powered WhatsApp bots and RAG pipelines to full-stack medical platforms with Google Vertex AI. 
+              I engineer production-grade AI systems and robust backends that solve real business bottlenecks. From deploying conversational agents to architecting secure medical platforms, my focus is always on delivering measurable value.
             </p>
             <p>
-              Hands-on across the entire lifecycle: architecting REST APIs, developing dynamic React & Next.js frontends, designing secure PostgreSQL schemas, and configuring automated AWS/GCP deployments.
+              Whether it's automating manual operations, reducing overhead, or scaling infrastructure to meet user demand, I take projects from zero to production across the entire stack.
             </p>
             <div className="about-stats">
               <div className="stat-item">
@@ -56,6 +56,10 @@ const About = () => {
                 <span className="stat-number">25+</span>
                 <span className="stat-text">APIs Integrated</span>
               </div>
+            </div>
+            
+            <div style={{ marginTop: '2rem' }}>
+              <a href="#contact" className="btn btn-primary glow-btn">Let's Talk</a>
             </div>
           </div>
           

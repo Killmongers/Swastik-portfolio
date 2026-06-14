@@ -88,6 +88,10 @@ const Skills = () => {
           </div>
         ))}
       </div>
+
+      <div style={{ marginTop: '4rem', textAlign: 'center' }} className="animate-on-scroll">
+        <a href="#contact" className="btn btn-primary glow-btn">Let's Talk</a>
+      </div>
     </section>
   );
 };

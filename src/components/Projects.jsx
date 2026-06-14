@@ -1,33 +1,52 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './Projects.css';
 
 const Projects = () => {
+  const iframeRef = useRef(null);
+
+  useEffect(() => {
+    // Attempt to set playback rate to 2x (fast) by polling for the first few seconds
+    const interval = setInterval(() => {
+      if (iframeRef.current && iframeRef.current.contentWindow) {
+        iframeRef.current.contentWindow.postMessage(
+          JSON.stringify({ event: 'command', func: 'setPlaybackRate', args: [2.0] }),
+          '*'
+        );
+      }
+    }, 1000);
+    
+    // Stop trying after 5 seconds
+    setTimeout(() => clearInterval(interval), 5000);
+    
+    return () => clearInterval(interval);
+  }, []);
+
   const projects = [
     {
-      title: 'WhatsApp AI Skin Care Bot',
-      description: 'An AI-powered WhatsApp chatbot built in Rust. Leverages Ollama (llama3) as the conversational brain with a custom system prompt to provide expert skin care routines and advice. Integrates seamlessly with OpenWA via webhooks for instant WhatsApp messaging.',
+      title: 'Automated Customer Support Agent',
+      description: 'Replaced a human support agent for a skincare brand — customers get instant expert advice 24/7 on WhatsApp. Powered by a custom conversational AI brain for accurate product recommendations.',
       tags: ['Rust', 'Axum', 'Ollama', 'Llama 3', 'OpenWA'],
       youtubeId: 'ePu4Ss0ge8o',
       github: 'https://github.com/Killmongers/whatsapp-skincare-bot'
     },
     {
-      title: 'AutoLead WhatsApp Chatbot',
-      description: 'Automated lead capture system utilizing WhatsApp API and LangChain JS agents. Operates via RAG similarity search over business documentation to deliver context-aware, secure replies. Implemented strict safety guardrails and idle session lifecycle enforcers, persisting structured leads directly to a PostgreSQL database.',
+      title: 'Automated Lead Capture System',
+      description: 'Eliminated manual lead qualification by deploying an automated system that securely captures and stores structured client data via WhatsApp, integrating seamlessly with existing business documentation.',
       tags: ['LangChain JS', 'Node.js', 'PostgreSQL', 'RAG', 'WhatsApp API']
     },
     {
-      title: 'IVF Clinic Management Platform',
-      description: 'A full-stack medical platform featuring secure JWT role authorization and SendGrid notifications. Integrates AI-assisted IVF image analysis powered by Google Vertex AI. Employs Prisma and GCS bucket structures for secure file hosting, generating time-limited signed URLs to protect sensitive patient documents.',
+      title: 'Secure Healthcare Management Platform',
+      description: 'Streamlined clinic operations and secured patient data with an end-to-end platform. Features automated AI-assisted image analysis to speed up medical evaluations and reporting.',
       tags: ['React.js', 'Node.js', 'Prisma', 'Google Vertex AI', 'GCS', 'PostgreSQL']
     },
     {
-      title: 'AI Bank Document Analyzer',
-      description: 'KYC automation backend designed to extract and parse high-fidelity structured datasets from bank statements, Aadhaar cards, and PAN cards. Utilizes advanced OCR utilities and customized LLM prompts to analyze document authentications efficiently.',
+      title: 'KYC & Document Extraction Engine',
+      description: 'Reduced manual document processing time by extracting and parsing high-fidelity structured datasets from bank statements and IDs with advanced OCR and AI.',
       tags: ['Python', 'FastAPI', 'LLM Prompt Engineering', 'OCR', 'KYC Automation']
     },
     {
-      title: 'Hotel Booking WhatsApp Bot',
-      description: 'Conversational booking assistant integrated directly with Oracle Hospitality (OHIP) REST APIs. Retrieves live train/hotel listings, tracks real-time inventory management, and handles complete end-to-end reservation processing within active WhatsApp threads.',
+      title: 'Conversational Booking Assistant',
+      description: 'Increased reservation efficiency by allowing users to complete end-to-end hotel and travel bookings directly within active WhatsApp threads, connected to live inventory APIs.',
       tags: ['LangChain JS', 'Node.js', 'Oracle OHIP API', 'Conversational AI']
     }
   ];
@@ -51,7 +70,8 @@ const Projects = () => {
           </div>
           <div className="featured-video-container">
             <iframe
-              src={`https://www.youtube.com/embed/${featuredProject.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${featuredProject.youtubeId}&controls=0&modestbranding=1&rel=0&disablekb=1`}
+              ref={iframeRef}
+              src={`https://www.youtube.com/embed/${featuredProject.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${featuredProject.youtubeId}&controls=0&modestbranding=1&rel=0&disablekb=1&enablejsapi=1`}
               title="WhatsApp AI Skin Care Bot Demo"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -97,6 +117,11 @@ const Projects = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      <div style={{ marginTop: '4rem', textAlign: 'center' }} className="animate-on-scroll">
+        <h3 style={{ marginBottom: '1.5rem', fontSize: '1.5rem' }}>Need something similar built?</h3>
+        <a href="#contact" className="btn btn-primary glow-btn">Let's Talk</a>
       </div>
     </section>
   );

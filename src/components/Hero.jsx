@@ -5,13 +5,13 @@ const Hero = () => {
   const [roleText, setRoleText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [typingSpeed, setTypingSpeed] = useState(95);
 
   const roles = [
-    'Full-Stack & AI Engineer',
-    'LLM Integration Specialist',
-    'Backend Architect',
-    'RAG Pipeline Builder',
+    'Scale With AI',
+    'Automate Your Ops',
+    'Ship Faster',
+    'Reduce Manual Work',
   ];
 
   useEffect(() => {
@@ -41,7 +41,6 @@ const Hero = () => {
 
   return (
     <section id="home" className="hero-section">
-      {/* Background decorative layer — overflow clipped independently to avoid clipping text content */}
       <div className="hero-bg-clip" aria-hidden="true">
         <div className="hero-blobs">
           <div className="blob blob-1" />
@@ -61,8 +60,11 @@ const Hero = () => {
         <div className="hero-text">
 
           <div className="hero-badge">
-            <span className="badge-icon">⚡</span>
-            <span>Open to new opportunities</span>
+            {/* Lightning bolt icon */}
+            <svg className="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+            <span>Available for new opportunities</span>
           </div>
 
           <h1 className="hero-name">Swastik<br />Moolya</h1>
@@ -73,21 +75,38 @@ const Hero = () => {
           </h2>
 
           <p className="hero-tagline">
-            Building production-grade AI systems — LangChain WhatsApp agents,
-            RAG pipelines, full-stack medical platforms with Vertex AI, and
-            automated AWS / GCP deployments.
+            I build AI systems and robust backends that automate your operations, reduce manual workload, and scale seamlessly with your business needs.
           </p>
 
           <div className="hero-actions">
-            <a href="#projects" className="btn btn-primary glow-btn">
-              View Projects
-            </a>
-            <a
-              href="#contact"
-              className="btn btn-outline"
-            >
-              Get in Touch
-            </a>
+            <a href="#contact" className="btn btn-primary glow-btn">Let's Talk</a>
+            <a href="#projects" className="btn btn-outline">View My Work</a>
+          </div>
+
+          <div className="social-proof-strip-inline animate-on-scroll">
+            <div className="proof-item">
+              <svg className="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span className="proof-text">5+ Production Systems Shipped</span>
+            </div>
+            <div className="proof-divider" />
+            <div className="proof-item">
+              <svg className="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+              <span className="proof-text">Healthcare, Hospitality & Retail</span>
+            </div>
+            <div className="proof-divider" />
+            <div className="proof-item">
+              <svg className="proof-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
+              <span className="proof-text">End-to-End Delivery</span>
+            </div>
           </div>
 
           <div className="hero-tech-row">
@@ -144,18 +163,23 @@ const Hero = () => {
 
           {/* Floating stat chips */}
           <div className="stat-chip chip-top">
-            <span className="chip-icon">🤖</span>
+            <svg className="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
             <div>
-              <div className="chip-value">4 AI Agents</div>
-              <div className="chip-sub">In Production</div>
+              <div className="chip-value">5+ Systems</div>
+              <div className="chip-sub">Shipped to Production</div>
             </div>
           </div>
 
           <div className="stat-chip chip-bottom">
-            <span className="chip-icon">☁️</span>
+            <svg className="chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+            </svg>
             <div>
-              <div className="chip-value">AWS + GCP</div>
-              <div className="chip-sub">Cloud Deployed</div>
+              <div className="chip-value">API to Production</div>
+              <div className="chip-sub">End-to-End Delivery</div>
             </div>
           </div>
         </div>
