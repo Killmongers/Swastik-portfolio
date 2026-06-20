@@ -10,7 +10,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ['home', 'about', 'experience', 'skills', 'projects', 'contact'];
+      const sections = ['home', 'projects', 'experience', 'skills', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -28,10 +28,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'skills', label: 'Stack' },
+    { id: 'home', label: 'Home' },
     { id: 'projects', label: 'Projects' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'contact', label: 'Contact' },
   ];
 
   return (
@@ -39,7 +40,8 @@ const Navbar = () => {
       <div className="navbar-inner">
         {/* Brand */}
         <a href="#home" className="navbar-brand">
-          Swastik<span className="brand-accent">.dev</span>
+          <div className="brand-logo">SM</div>
+          <span className="brand-name">Swastik</span>
         </a>
 
         {/* Desktop Links */}
@@ -55,14 +57,14 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Right — status + CTA */}
+        {/* Right CTA */}
         <div className="navbar-right">
-          <div className="status-pill">
-            <span className="status-dot"></span>
-            <span className="status-text">Available</span>
-          </div>
-          <a href="#contact" className="nav-cta">
-            Hire Me
+          <a href="#contact" className="btn btn-primary nav-cta">
+            Let's Talk
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
           </a>
         </div>
 
@@ -91,7 +93,7 @@ const Navbar = () => {
           </a>
         ))}
         <a href="#contact" className="mobile-nav-cta" onClick={() => setMenuOpen(false)}>
-          Hire Me →
+          Let's Talk →
         </a>
       </div>
     </header>

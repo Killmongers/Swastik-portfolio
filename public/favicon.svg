@@ -1,37 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#0e1326"/>
-      <stop offset="100%" stop-color="#070913"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="64" y2="0" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#00f2fe"/>
-      <stop offset="50%" stop-color="#4facfe"/>
-      <stop offset="100%" stop-color="#c084fc"/>
+      <stop offset="0%" stop-color="#FF6B35"/>
+      <stop offset="100%" stop-color="#FFB563"/>
     </linearGradient>
   </defs>
-
-  <!-- Background rounded square -->
-  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
-
-  <!-- Subtle border glow -->
-  <rect width="64" height="64" rx="14" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.35"/>
-
-  <!-- Code brackets < > -->
-  <text x="5" y="22" font-family="monospace" font-size="13" fill="url(#accent)" opacity="0.5">&lt;</text>
-  <text x="49" y="48" font-family="monospace" font-size="13" fill="url(#accent)" opacity="0.5">/&gt;</text>
-
-  <!-- Bold S letter centered -->
+  <!-- Rounded square background -->
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <!-- SM initials -->
   <text
-    x="32"
-    y="43"
-    font-family="'Arial Black', 'Helvetica Neue', sans-serif"
-    font-size="32"
-    font-weight="900"
+    x="32" y="43"
+    font-family="'Arial Rounded MT Bold', 'Helvetica Neue', Arial, sans-serif"
+    font-size="26"
+    font-weight="800"
+    fill="#FFFFFF"
     text-anchor="middle"
-    fill="url(#accent)"
-  >S</text>
-
-  <!-- Tiny dot accent bottom right -->
-  <circle cx="51" cy="51" r="3" fill="#00f2fe" opacity="0.7"/>
+    letter-spacing="-1"
+  >SM</text>
 </svg>

@@ -1,222 +1,138 @@
-/* ═══════════════════════════════════════════
-   EXPERIENCE SECTION STACK
-═══════════════════════════════════════════ */
-.exp-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
-  width: 100%;
+.experience-section {
+  padding-top: 4rem;
 }
 
-/* ═══════════════════════════════════════════
-   EXPERIENCE CARD
-═══════════════════════════════════════════ */
+.exp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .exp-card {
-  position: relative;
-  background: rgba(14, 19, 38, 0.4);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  display: grid;
+  grid-template-columns: clamp(250px, 25vw, 450px) 1fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  padding: clamp(2rem, 4vw, 4rem);
+  background: var(--bg-secondary);
   border: 1px solid var(--card-border);
   border-radius: 16px;
-  padding: 2.25rem;
-  transition: all var(--transition-slow);
+  transition: all var(--transition-normal);
+  position: relative;
+  box-shadow: var(--shadow-sm);
 }
 
 .exp-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(255, 104, 39, 0.15);
 }
 
-/* ── Current Role Styling ── */
-.exp-current {
-  border-color: rgba(0, 242, 254, 0.35);
-  box-shadow: 0 -4px 20px rgba(0, 242, 254, 0.08);
+.exp-left {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
 }
 
-.exp-live-badge {
-  position: absolute;
-  top: 1.5rem;
-  right: 2.25rem;
+.exp-company-logo {
+  width: clamp(50px, 4vw, 80px);
+  height: clamp(50px, 4vw, 80px);
+  background: var(--accent-light-orange);
+  color: var(--accent-primary);
+  border-radius: 12px;
   display: flex;
   align-items: center;
-  gap: 6px;
-  color: var(--accent-primary);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.live-dot {
-  width: 8px;
-  height: 8px;
-  background-color: var(--accent-primary);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-primary);
-  animation: pulse-dot-teal 2s infinite;
-}
-
-@keyframes pulse-dot-teal {
-  0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.5); }
-  70% { box-shadow: 0 0 0 6px rgba(0, 242, 254, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); }
-}
-
-/* ═══════════════════════════════════════════
-   HEADER & METADATA
-═══════════════════════════════════════════ */
-.exp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 0.5rem;
-  gap: 1rem;
-}
-
-/* If it's a current role, the Live badge occupies top right. 
-   We add a little padding to the top so header doesn't overlap badge. */
-.exp-current .exp-header {
-  padding-top: 1.5rem;
-}
-
-.exp-role {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin: 0;
-}
-
-.exp-date {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--accent-primary);
-  background: rgba(0, 242, 254, 0.08);
-  padding: 0.35rem 0.9rem;
-  border-radius: 20px;
-  border: 1px solid rgba(0, 242, 254, 0.15);
-  white-space: nowrap;
+  justify-content: center;
+  font-size: clamp(1.5rem, 2vw, 2.5rem);
+  font-weight: 800;
   flex-shrink: 0;
 }
 
-.exp-company {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--accent-secondary);
+.exp-company-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-company-name {
+  font-size: var(--text-h3);
+  font-weight: 700;
+  color: var(--text-primary);
   margin-bottom: 0.25rem;
 }
 
-.exp-location {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 1.5rem;
+.exp-role {
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
 }
 
-/* ═══════════════════════════════════════════
-   DETAILS & TOGGLE
-═══════════════════════════════════════════ */
-.exp-divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.08);
-  margin-bottom: 1.5rem;
+.exp-duration {
+  font-size: clamp(0.85rem, 1vw, 1.2rem);
+  color: var(--text-secondary);
+  opacity: 0.8;
 }
 
-/* Transition wrapper */
-.exp-details-wrapper {
-  overflow: hidden;
-  transition: max-height 0.4s ease;
+.exp-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .exp-details {
   list-style: none;
   padding: 0;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .exp-details li {
-  margin-bottom: 0.85rem;
-  padding-left: 1.5rem;
-  position: relative;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-.exp-details li::before {
-  content: "▹";
-  position: absolute;
-  left: 0;
-  color: var(--accent-primary);
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.exp-details li:last-child {
-  margin-bottom: 0;
-}
-
-.exp-toggle-btn {
-  background: none;
-  border: none;
-  color: var(--accent-primary);
-  font-family: var(--font-code);
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  margin-top: 1.25rem;
-  padding: 0;
-  transition: color var(--transition-fast);
   display: flex;
-  align-items: center;
-  gap: 0.25rem;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
 
-.exp-toggle-btn:hover {
-  color: #fff;
+.bullet-point {
+  width: clamp(6px, 0.5vw, 10px);
+  height: clamp(6px, 0.5vw, 10px);
+  border-radius: 50%;
+  background-color: var(--accent-primary);
+  margin-top: 10px;
+  flex-shrink: 0;
 }
 
-/* ═══════════════════════════════════════════
-   MOBILE
-═══════════════════════════════════════════ */
-@media (max-width: 600px) {
+.exp-details p {
+  color: var(--text-secondary);
+  font-size: var(--text-p);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
   .exp-card {
-    padding: 1.5rem 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 2rem;
   }
   
-  .exp-live-badge {
-    top: 1rem;
-    right: 1rem;
+  .exp-company-info {
+    margin-bottom: 0.5rem;
   }
+}
 
-  .exp-current .exp-header {
-    padding-top: 1.75rem;
+@media (max-width: 480px) {
+  .exp-card {
+    padding: 1.5rem;
   }
-
-  .exp-header {
-    flex-direction: column;
-    gap: 0.75rem;
+  
+  .exp-left {
+    gap: 1rem;
   }
-
-  .exp-date {
-    align-self: flex-start;
-  }
-
-  .exp-role {
+  
+  .exp-company-logo {
+    width: 40px;
+    height: 40px;
     font-size: 1.25rem;
-  }
-
-  .exp-company {
-    font-size: 0.95rem;
-  }
-
-  .exp-location {
-    font-size: 0.85rem;
-  }
-
-  .exp-details li {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    border-radius: 10px;
   }
 }

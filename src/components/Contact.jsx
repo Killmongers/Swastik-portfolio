@@ -151,19 +151,25 @@ const Contact = () => {
 
   return (
     <section id="contact" className="section-container contact-section">
-      <h2 className="section-title">Get In Touch</h2>
-
-      <div className="contact-card glass-effect animate-on-scroll">
-        <div className="contact-header">
-          <h3>Let's build something great together</h3>
-          <p>
+      
+      <div className="contact-grid">
+        
+        {/* ── Left Side: Info ── */}
+        <div className="contact-info animate-on-scroll">
+          <div className="section-header">
+            <div className="section-dot"></div>
+            <h2 className="section-title">Contact</h2>
+          </div>
+          
+          <h3 className="contact-heading">Have an idea? Let's build something great.</h3>
+          <p className="contact-description">
             Open to engineering robust backend architectures, intelligent AI agents, and scalable cloud environments.
-            Reach out directly or drop a message below.
+            Reach out directly or drop a message via the form.
           </p>
         </div>
 
-        <div className="contact-content-wrapper">
-          {/* ── Form ── */}
+        {/* ── Right Side: Form ── */}
+        <div className="contact-form-container glass-card animate-on-scroll" style={{ transitionDelay: '0.2s' }}>
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -174,9 +180,10 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                placeholder="Your Name"
+                placeholder="John Doe"
               />
             </div>
+            
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -186,9 +193,10 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="your.email@example.com"
+                placeholder="john@example.com"
               />
             </div>
+            
             <div className="form-group">
               <label htmlFor="message">Message</label>
               <textarea
@@ -197,14 +205,14 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                placeholder="What's on your mind?"
+                placeholder="Tell me about your project..."
                 rows="5"
               />
             </div>
 
             <button
               type="submit"
-              className={`submit-btn ${status}`}
+              className={`btn btn-primary submit-btn ${status}`}
               disabled={status === 'loading'}
             >
               {status === 'loading' && <span className="btn-spinner" />}
@@ -221,36 +229,9 @@ const Contact = () => {
               </span>
             </button>
           </form>
-
-          <div className="contact-divider">
-            <span>OR</span>
-          </div>
-
-          {/* ── Channels ── */}
-          <div className="contact-methods vertical">
-            {channels.map(({ href, Icon, label, value, className, external }) => (
-              <a
-                key={href}
-                href={href}
-                className={`contact-method ${className}`}
-                {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              >
-                <span className="icon-wrapper">
-                  <Icon />
-                </span>
-                <div className="method-text">
-                  <span className="method-label">{label}</span>
-                  <span className="method-value">{value}</span>
-                </div>
-              </a>
-            ))}
-          </div>
         </div>
-      </div>
 
-      <footer className="footer">
-        <p>&copy; 2024 Swastik Moolya. Engineered with React, Vite & absolute dedication.</p>
-      </footer>
+      </div>
     </section>
   );
 };
